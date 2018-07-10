@@ -15,16 +15,37 @@ npm i -S seng-disposable-manager
 
 ## Usage
  
-#### Constructing and adding disposable instances.
+#### Constructing and adding disposable items.
 ```
+  // Construct
   const disposableManagerInstance = new DisposableManager();
-  instance.add(setInterval(() => {
-    foo();
-  }, 500), DisposableTypes.INTERVAL)
+  
+  // Disposable item
+  const fooBar = {
+    dispose: () => {}
+  };
+  
+  // Add disposable item
+  instance.add(fooBar);
+  
+  // Add interval
+  instance.add(
+    setInterval(() => {
+      foo();
+    }, 500),
+    DisposableTypes.INTERVAL,
+  );
+  
+  // Or Add interval via addInterval method
+  instance.addInterval(
+    setInterval(() => {
+      foo();
+    }, 500)
+  );
 ``` 
  
 #### Plugin/Register your own disposable types 
-in the callback you will get the variable that you have added via the 'add' method which you can destroy/cleanup.
+in the callback you will get the item that you have added via the 'add' method which you can destroy/cleanup.
 
 ```
   DisposableManager.register('destruct', ((instance) => {
@@ -42,7 +63,7 @@ in the callback you will get the variable that you have added via the 'add' meth
 ```
 
 #### Disposing DisposableManager
-This will clean up all the added instances, timeouts and custom added types.
+This will clean up all the added instances, timeouts and custom added items/types.
 ```
   disposableManagerInstance.dispose();
 ``` 
