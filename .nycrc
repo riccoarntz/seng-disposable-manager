@@ -11,8 +11,7 @@
     "src/**/*.{js,ts}"
   ],
   "exclude": [
-    "test/**/*.spec.{js,ts}",
-    "src/lib/vendor/**/*.*"
+    "test/**/*.spec.{js,ts}"
   ],
   "reporter": [
     "lcov",

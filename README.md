@@ -1,5 +1,5 @@
 # seng-disposable-manager
-Utility class for cleaning up various destructible things like timeouts, disposable instances and whatever you want to 
+Utility class for cleaning up various destructible things like timeouts, disposable items and whatever you want to 
 add.
 
 ## Installation
