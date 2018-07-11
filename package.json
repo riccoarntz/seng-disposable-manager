@@ -1,6 +1,6 @@
 {
   "name": "seng-disposable-manager",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utility class for cleaning up various destructible things like timeouts, disposable instances and whatever you want to add.",
   "main": "./index.js",
   "types": "./index.d.ts",
