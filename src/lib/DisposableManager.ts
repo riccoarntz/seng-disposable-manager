@@ -49,11 +49,15 @@ export default class DisposableManager {
       throw new Error(`Following type is not registered yet: [${type}]`);
     }
 
+    if (!this.disposables) {
+      this.disposables = {};
+    }
+
     if (!this.disposables[type]) {
       this.disposables[type] = [];
-    } else {
-      this.disposables[type].push(disposable);
     }
+
+    this.disposables[type].push(disposable);
 
     return disposable;
   }
@@ -83,5 +87,7 @@ export default class DisposableManager {
       this.disposables[type].length = 0;
       this.disposables[type] = null;
     });
+
+    this.disposables = null;
   }
 }
