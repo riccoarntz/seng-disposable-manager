@@ -1,4 +1,5 @@
 import DisposableManager from '../../src/lib/DisposableManager';
+import setInterval from '../../lib/helpers/setInterval';
 
 export default class CustomInstance {
   private disposableManager:DisposableManager = new DisposableManager();
@@ -17,7 +18,7 @@ export default class CustomInstance {
    */
   public startInterval():void
   {
-    this.disposableManager.addInterval(
+    this.disposableManager.add(
       setInterval(() => {
         ++this.timeoutCounter;
         this.timeoutText.innerHTML = this.timeoutCounter.toString();
