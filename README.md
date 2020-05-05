@@ -1,6 +1,5 @@
 # seng-disposable-manager
-Utility class for cleaning up various destructible things like timeouts, disposable items and whatever you want to
-add.
+Utility class for cleaning up dispose functions.
 
 ## Installation
 ### yarn / npm
