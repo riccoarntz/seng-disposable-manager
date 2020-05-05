@@ -18,8 +18,8 @@ npm i -S seng-disposable-manager
 #### Constructing and adding disposable items.
 ```
   // Construct
-  const disposableManagerInstance = new DisposableManager();
-  
+  const instance = new DisposableManager();
+
   // Disposable item
   const fooBar = {
     dispose: () => {}
