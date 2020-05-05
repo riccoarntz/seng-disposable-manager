@@ -9,27 +9,16 @@ export default class DisposableManager {
    * list of disposables, like Event handlers, used for destruction
    * @type {{}}
    */
-  private readonly disposables: Array<(() => void) | number> = [];
+  private readonly disposables: Array<(() => void)> = [];
 
   /**
    *
    * @method add
    * @param disposable
-   * @returns {any}
+   * @returns void
    */
   public add(disposable: () => void): void {
     this.disposables.push(disposable);
-  }
-
-  /**
-   * Adds an interval
-   *
-   * @method addInterval
-   * @param interval {number} id of the interval
-   * @returns {number} id of the interval
-   */
-  public addInterval(interval: number): void {
-    this.disposables.push(interval);
   }
 
   /**
@@ -38,13 +27,6 @@ export default class DisposableManager {
    * @method dispose
    */
   public dispose(): void {
-    while (this.disposables.length) {
-      const disposable = this.disposables.pop();
-      if (typeof disposable === 'number') {
-        clearInterval(disposable as number);
-      } else {
-        (disposable as () => void)();
-      }
-    }
+    while (this.disposables.length) this.disposables.pop()();
   }
 }

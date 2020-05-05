@@ -1,7 +1,7 @@
 import { expect, use } from 'chai';
 import {spy} from 'sinon';
 import sinonChai from 'sinon-chai';
-import { DisposableManager } from '../src';
+import { DisposableManager, setTimeout, setInterval } from '../src';
 use(sinonChai);
 
 describe('DisposableManager', () => {
@@ -12,7 +12,8 @@ describe('DisposableManager', () => {
     const disposable = spy();
 
     disposableManager.add(disposable);
-    disposableManager.addInterval(window.setTimeout(() => console.log('test'), 10));
+    disposableManager.add(setTimeout(() => console.log('timeout'), 100));
+    disposableManager.add(setInterval(() => console.log('interval'), 100));
 
     disposableManager.dispose();
 
