@@ -1,5 +1,5 @@
 # seng-disposable-manager
-Utility class for cleaning up various destructible things like timeouts, disposable items and whatever you want to 
+Utility class for cleaning up various destructible things like timeouts, disposable items and whatever you want to
 add.
 
 ## Installation
@@ -14,7 +14,7 @@ npm i -S seng-disposable-manager
 ```
 
 ## Usage
- 
+
 #### Constructing and adding disposable items.
 ```
   // Construct
@@ -24,10 +24,10 @@ npm i -S seng-disposable-manager
   const fooBar = {
     dispose: () => {}
   };
-  
+
   // Add disposable item
   instance.add(fooBar);
-  
+
   // Add interval
   instance.add(
     setInterval(() => {
@@ -35,30 +35,30 @@ npm i -S seng-disposable-manager
     }, 500),
     DisposableTypes.INTERVAL,
   );
-  
+
   // Or Add interval via addInterval method
   instance.addInterval(
     setInterval(() => {
       foo();
     }, 500)
   );
-``` 
- 
-#### Plugin/Register your own disposable types 
+```
+
+#### Plugin/Register your own disposable types
 in the callback you will get the item that you have added via the 'add' method which you can destroy/cleanup.
 
 ```
   DisposableManager.register('destruct', ((instance) => {
     instance.destruct();
   ));
-``` 
+```
 
 #### Usage of custom/registered types
 ```
   const foo = {
     destruct: () => {}
   }
-  
+
   disposableManagerInstance.add(foo, 'destruct');
 ```
 
@@ -66,7 +66,7 @@ in the callback you will get the item that you have added via the 'add' method w
 This will clean up all the added instances, timeouts and custom added items/types.
 ```
   disposableManagerInstance.dispose();
-``` 
+```
 
 
 ## Building

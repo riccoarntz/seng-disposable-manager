@@ -15,6 +15,7 @@
     "noUnusedParameters": true,
     "pretty": true,
     "skipLibCheck": true,
+    "strict": true,
     "strictNullChecks": false,
     "sourceMap": true,
     "target": "ESNext",
@@ -25,7 +26,7 @@
     ]
   },
   "include": [
-    "./src/**/*",
-    "./types/**/*.d.ts"
-  ]
+    "./src/**/*.ts"
+  ],
+  "exclude": ["./node_modules"]
 }
