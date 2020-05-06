@@ -1,3 +1,6 @@
+import { DisposeFunction } from './DisposeFunction';
+import disposeAll from './disposeAll';
+
 /**
  * Utility class for handling various disposable things like timeouts, disposable functions.
  *
@@ -9,7 +12,7 @@ export default class DisposableManager {
    * list of disposables, like Event handlers, used for destruction
    * @type {{}}
    */
-  private readonly disposables: Array<(() => void)> = [];
+  private readonly disposables: Array<DisposeFunction> = [];
 
   /**
    *
@@ -17,7 +20,7 @@ export default class DisposableManager {
    * @param disposable
    * @returns void
    */
-  public add(disposable: () => void): void {
+  public add(disposable: DisposeFunction): void {
     this.disposables.push(disposable);
   }
 
@@ -27,6 +30,6 @@ export default class DisposableManager {
    * @method dispose
    */
   public dispose(): void {
-    while (this.disposables.length) this.disposables.pop()();
+    disposeAll(this.disposables);
   }
 }
