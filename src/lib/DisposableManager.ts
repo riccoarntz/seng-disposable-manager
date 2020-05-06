@@ -15,13 +15,14 @@ export default class DisposableManager {
   private readonly disposables: Array<DisposeFunction> = [];
 
   /**
+   * Add one or more dispose functions to the DisposableManager
    *
    * @method add
    * @param disposable
    * @returns void
    */
-  public add(disposable: DisposeFunction): void {
-    this.disposables.push(disposable);
+  public add(...disposables: ReadonlyArray<DisposeFunction>): void {
+    this.disposables.push(...disposables);
   }
 
   /**

@@ -20,3 +20,20 @@ describe('DisposableManager', () => {
     expect(disposable).calledOnce;
   });
 });
+
+describe('DisposableManager', () => {
+  it('Add multiple at once', () => {
+
+    const disposableManager = new DisposableManager();
+
+    const disposable1 = spy();
+    const disposable2 = spy();
+
+    disposableManager.add(disposable1, disposable2);
+
+    disposableManager.dispose();
+
+    expect(disposable1).calledOnce;
+    expect(disposable2).calledOnce;
+  });
+});
