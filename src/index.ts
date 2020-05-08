@@ -1,3 +1,5 @@
+export { DisposeFunction } from './lib/DisposeFunction';
+export { default as disposeAll } from './lib/disposeAll';
 export { default as DisposableManager } from './lib/DisposableManager';
-export { IDisposable } from './lib/interface/IDisposable';
-export { default as DisposableTypes } from './lib/data/DisposableTypes';
+export { default as setInterval } from './lib/helpers/setInterval';
+export { default as setTimeout } from './lib/helpers/setTimeout';

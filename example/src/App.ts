@@ -32,7 +32,7 @@ export default class App {
   {
     this.addButton.style.display = 'none';
     this.customInstance.startInterval();
-    this.disposableManager.add(this.customInstance, 'customType');
+    this.disposableManager.add(this.customInstance.destruct.bind(this.customInstance));
   }
 
   /**
